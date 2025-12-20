@@ -1,5 +1,7 @@
 import java.util.Collection;
+
 import org.junit.jupiter.api.Test;
+
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -53,7 +55,7 @@ public class TimetableTest {
         // Проверить, что за понедельник вернулось одно занятие
         Collection<TrainingSession> mondaySessions = timetable.getTrainingSessionsForDay(DayOfWeek.MONDAY);
         assertEquals(1, mondaySessions.size());
-        assertEquals(mondayChildTrainingSession,mondaySessions.iterator().next());
+        assertEquals(mondayChildTrainingSession, mondaySessions.iterator().next());
         // Проверить, что за четверг вернулось два занятия в правильном порядке: сначала в 13:00, потом в 20:00
         Collection<TrainingSession> thursdaySessions = timetable.getTrainingSessionsForDay(DayOfWeek.THURSDAY);
         assertEquals(2, thursdaySessions.size());
@@ -78,14 +80,15 @@ public class TimetableTest {
 
         //Проверить, что за понедельник в 13:00 вернулось одно занятие
         TrainingSession found =
-                timetable.getTrainingSessionsForDayAndTime(DayOfWeek.MONDAY, new TimeOfDay(13,0));
+                timetable.getTrainingSessionsForDayAndTime(DayOfWeek.MONDAY, new TimeOfDay(13, 0));
         assertNotNull(found);
-        assertEquals(singleTrainingSession,found);
+        assertEquals(singleTrainingSession, found);
         //Проверить, что за понедельник в 14:00 не вернулось занятий
         TrainingSession notFound =
                 timetable.getTrainingSessionsForDayAndTime(DayOfWeek.MONDAY, new TimeOfDay(14, 0));
         assertNull(notFound);
     }
+
     @Test
     void testGetCountByCoaches() {
         Timetable timetable = new Timetable();

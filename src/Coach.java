@@ -26,6 +26,7 @@ public class Coach {
     public String getMiddleName() {
         return middleName;
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
