@@ -32,7 +32,7 @@ public class Timetable {
             for (TrainingSession session : daySessions.values()) {
                 Coach coach = session.getCoach();
                 Integer currentCount = countMap.get(coach);
-                if(currentCount == null ) {
+                if (currentCount == null) {
                     countMap.put(coach, 1);
                 } else {
                     countMap.put(coach, currentCount + 1);
