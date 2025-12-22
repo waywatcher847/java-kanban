@@ -1,4 +1,4 @@
-public class TrainingSession {
+public class TrainingSession implements Comparable<TrainingSession> {
 
     //группа
     private Group group;
@@ -30,5 +30,22 @@ public class TrainingSession {
 
     public TimeOfDay getTimeOfDay() {
         return timeOfDay;
+    }
+
+    @Override
+    public int compareTo(TrainingSession other) {
+        if (other == null) {
+            return 1;
+        }
+
+        TimeOfDay thisTime = this.timeOfDay;
+        TimeOfDay otherTime = other.getTimeOfDay();
+
+        int hoursDiff = thisTime.getHours() - otherTime.getHours();
+        if (hoursDiff != 0) {
+            return hoursDiff;
+        }
+
+        return thisTime.getMinutes() - otherTime.getMinutes();
     }
 }

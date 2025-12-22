@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public class TimeOfDay implements Comparable<TimeOfDay> {
+public class TimeOfDay {
 
     //часы (от 0 до 23)
     private int hours;
@@ -21,18 +21,10 @@ public class TimeOfDay implements Comparable<TimeOfDay> {
     }
 
     @Override
-    public int compareTo(TimeOfDay other) {
-        if (this.hours != other.hours) {
-            return Integer.compare(this.hours, other.hours);
-        }
-        return Integer.compare(this.minutes, other.minutes);
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof TimeOfDay that)) return false;
-        return hours == that.hours && minutes == that.minutes;
+        return hours == that.getHours() && minutes == that.getMinutes();
     }
 
     @Override
