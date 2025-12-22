@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public class TimeOfDay {
+public class TimeOfDay implements Comparable<TimeOfDay> {
 
     //часы (от 0 до 23)
     private int hours;
@@ -35,6 +35,21 @@ public class TimeOfDay {
     @Override
     public String toString() {
         return hours + ":" + minutes;
+    }
+
+    @Override
+    public int compareTo(TimeOfDay other) {
+        if (other == null) return 1;
+
+        if (other.getHours() != hours) {
+            return other.getHours() > hours ? -1 : 1;
+        }
+
+        if (other.getMinutes() != minutes) {
+            return other.getMinutes() > minutes ? -1 : 1;
+        }
+
+        return 0;
     }
 }
 
